@@ -28,9 +28,11 @@
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  self.rootViewController = [UIViewController new];
+  self.rootViewController.view = rootView;
+  self.rootNavigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
+  self.rootNavigationController.navigationBarHidden = YES;
+  self.window.rootViewController = self.rootNavigationController;
   [self.window makeKeyAndVisible];
   return YES;
 }

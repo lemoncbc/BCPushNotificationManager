@@ -7,6 +7,7 @@
 //
 
 #import "BCViewController.h"
+#import "BCNotificationManager.h"
 
 @interface BCViewController ()
 
@@ -15,8 +16,27 @@
 @implementation BCViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  
+  [super viewDidLoad];
+  self.view.backgroundColor = [UIColor whiteColor];
+  [self creatButton];
+  
+}
+
+- (void)creatButton
+{
+  
+  UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x-50, self.view.center.y-25, 100, 50)];
+  [button setTitle:@"发送通知" forState:UIControlStateNormal];
+  [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+  [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:button];
+}
+
+- (void)buttonClick
+{
+  NSDictionary *dict = @{@"msg":@"成功"};//测试参数
+  [BCNotificationManager sendNotificationWithOptions:dict];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +44,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

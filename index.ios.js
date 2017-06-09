@@ -14,31 +14,14 @@ import {
   NavigatorIOS,
 } from 'react-native';
 
-var Manager = React.createClass({
-  render(){
-
-  return(
-    <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Welcome to React Native!
-      </Text>
-      <Text style={styles.instructions}>
-        To get started, edit index.ios.js
-      </Text>
-      <Text style={styles.instructions}>
-        Press Cmd+R to reload,{'\n'}
-        Cmd+D or shake for dev menu
-      </Text>
-    </View>
-  )
-}
-})
+import BCReactView from './js/BCReactView';
 export default class BCPushNotificationManager extends Component {
+
   render() {
     return (
       <NavigatorIOS
         initialRoute={{
-        component: Manager,
+        component: BCReactView,
         title: 'RN View',
         passProps: { myProp: 'foo' },
   }}
